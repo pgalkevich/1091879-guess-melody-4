@@ -1,7 +1,7 @@
 # Учебный проект «Угадай мелодию» [![Build status][travis-image]][travis-url]
 
 * Студент: [Павел Галькевич](https://up.htmlacademy.ru/react/4/user/1091879).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Колодько](https://htmlacademy.ru/profile/id109264).
 
 ---
 
