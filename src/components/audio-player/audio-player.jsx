@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 export default class AudioPlayer extends PureComponent {
   constructor(props) {
     super(props);
+    this.handlePlayButtonClick = this.handlePlayButtonClick.bind(this);
     this._audioRef = createRef();
 
     this.state = {
@@ -48,9 +49,25 @@ export default class AudioPlayer extends PureComponent {
     audio.src = ``;
   }
 
+  componentDidUpdate(prevProps) {
+    const audio = this._audioRef.current;
+
+    if (prevProps.isPlaying !== this.props.isPlaying && this.props.isPlaying) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+
+  handlePlayButtonClick() {
+    this.setState((prevState) => {
+      return {isPlaying: !prevState.state.isPlaying};
+    });
+    this.props.onPlayButtonClick();
+  }
+
   render() {
     const {isLoading, isPlaying} = this.state;
-    const {onPlayButtonClick} = this.props;
 
     return (
       <Fragment>
@@ -58,26 +75,13 @@ export default class AudioPlayer extends PureComponent {
           className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
           type="button"
           disabled={isLoading}
-          onClick={() => {
-            this.setState({isPlaying: !this.state.isPlaying});
-            onPlayButtonClick();
-          }}
+          onClick={this.handlePlayButtonClick}
         />
         <div className="track__status">
           <audio ref={this._audioRef}/>
         </div>
       </Fragment>
     );
-  }
-
-  componentDidUpdate() {
-    const audio = this._audioRef.current;
-
-    if (this.props.isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
   }
 }
 
