@@ -30,7 +30,11 @@ const withAudio = (Component) => {
     componentDidUpdate() {
       const audio = this._audioRef.current;
 
-      this.state.isPlaying ? audio.play() : audio.pause();
+      if (this.state.isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
     }
 
     componentWillUnmount() {
