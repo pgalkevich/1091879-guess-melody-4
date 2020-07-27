@@ -10,7 +10,6 @@ import {Operation as DataOperation} from "./reducer/data/data.js";
 import {Operation as UserOperation, ActionCreator, AuthorizationStatus} from "./reducer/user/user.js";
 import {createAPI} from "./api.js";
 
-
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
 // `store` зависит от `api`, а `api` зависит от `store`.
 const onUnauthorized = () => {
