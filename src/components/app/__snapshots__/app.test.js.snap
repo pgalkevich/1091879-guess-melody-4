@@ -9,7 +9,8 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
   >
     <a
       className="game__back"
-      href="#"
+      href="/"
+      onClick={[Function]}
     >
       <span
         className="visually-hidden"
@@ -259,24 +260,21 @@ exports[`Render App Render GameOverScreen 1`] = `
   <h2
     className="result__title"
   >
-    Вы настоящий меломан!
+    Какая жалость!
   </h2>
   <p
-    className="result__total"
+    className="result__total result__total--fail"
   >
-    Вы ответили правильно на 
-    2
-     вопросов и совершили 
-    0
-     ошибки
+    У вас закончились все попытки. Ничего, повезёт в следующий раз!
   </p>
-  <button
+  <a
     className="replay"
+    href="/"
     onClick={[Function]}
     type="button"
   >
-    Сыграть ещё раз
-  </button>
+    Попробовать ещё раз
+  </a>
 </section>
 `;
 
@@ -289,7 +287,8 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
   >
     <a
       className="game__back"
-      href="#"
+      href="/"
+      onClick={[Function]}
     >
       <span
         className="visually-hidden"
@@ -547,5 +546,43 @@ exports[`Render App Render WelcomeScreen 1`] = `
   >
     Удачи!
   </p>
+</section>
+`;
+
+exports[`Render App Render WinScreen 1`] = `
+<section
+  className="result"
+>
+  <div
+    className="result__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="result__title"
+  >
+    Вы настоящий меломан!
+  </h2>
+  <p
+    className="result__total"
+  >
+    Вы ответили правильно на 
+    2
+     вопросов и совершили 
+    0
+     ошибки
+  </p>
+  <a
+    className="replay"
+    href="/"
+    onClick={[Function]}
+  >
+    Сыграть ещё раз
+  </a>
 </section>
 `;
